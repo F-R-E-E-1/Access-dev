@@ -1,0 +1,13 @@
+server:
+  port: 9999
+spring:
+  datasource:
+    username: root
+    password:
+    url: jdbc:mysql:///xdb
+  redis:
+    port: 6397
+    host: 127.0.0.1
+logging:
+  level:
+    com.access: debug
