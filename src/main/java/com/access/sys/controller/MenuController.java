@@ -2,6 +2,7 @@ package com.access.sys.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Controller;
  * @author Free
  * @since 2023-02-25
  */
-@Controller
+@RestController
 @RequestMapping("/sys/menu")
 public class MenuController {
 
