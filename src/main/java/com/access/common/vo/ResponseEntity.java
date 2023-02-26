@@ -31,19 +31,19 @@ public class ResponseEntity<T> {
         return new ResponseEntity<>(20000,message,null);
     }
 
-    public static<T>  ResponseEntity<T> fail(){
+    public static <T> ResponseEntity<T> fail(){
         return new ResponseEntity<>(20001,"fail",null);
     }
 
-    public static<T>  ResponseEntity<T> fail(Integer code){
+    public static <T> ResponseEntity<T> fail(Integer code){
         return new ResponseEntity<>(code,"fail",null);
     }
 
-    public static<T>  ResponseEntity<T> fail(Integer code, String message){
+    public static <T> ResponseEntity<T> fail(Integer code, String message){
         return new ResponseEntity<>(code,message,null);
     }
 
-    public static<T>  ResponseEntity<T> fail( String message){
+    public static <T> ResponseEntity<T> fail( String message){
         return new ResponseEntity<>(20001,message,null);
     }
 }
