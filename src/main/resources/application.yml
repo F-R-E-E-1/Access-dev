@@ -5,9 +5,13 @@ spring:
     username: root
     password:
     url: jdbc:mysql:///xdb
-  redis:
-    port: 6397
-    host: 127.0.0.1
+#默认redis就不用配置
+#  redis:
+#    host: 127.0.0.1
+#    port: 6397
+#    database: 0
+#    password:
+#    timeout: 5000
 logging:
   level:
     com.access: debug

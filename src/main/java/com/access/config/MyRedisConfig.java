@@ -29,7 +29,7 @@ public class MyRedisConfig {
 
     @Bean
     public RedisTemplate redisTemplate(){
-        RedisTemplate<String,Object> redisTemplate = new RedisTemplate<>();
+        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(factory);
 
         // 针对键做String序列化
@@ -51,6 +51,6 @@ public class MyRedisConfig {
         om.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         serializer.setObjectMapper(om);
 
-        return redisTemplate;
+        return  redisTemplate;
     }
 }
