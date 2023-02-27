@@ -39,4 +39,20 @@ public class UserController {
         }
         return ResponseEntity.fail(20002,"用户名或密码错误");
     }
+
+    @GetMapping("/info")
+    public ResponseEntity<?> getUserInfo(@RequestParam("token") String token){
+        // 根据token获取用户信息,从redis里面
+        Map<String,Object> data = userService.getUserInfo(token);
+        if (data != null){
+            return ResponseEntity.success(data);
+        }
+        return ResponseEntity.fail(20003,"登录信息无效，请重新登录");
+    }
+
+    @PostMapping("/loginout")
+    public ResponseEntity<?> loginOut(@RequestHeader("X-token") String token){
+        userService.loginOut(token);
+        return ResponseEntity.success();
+    }
 }
