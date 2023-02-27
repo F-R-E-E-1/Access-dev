@@ -20,6 +20,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/user")
+//@CrossOrigin  解决跨域
 public class UserController {
 
     @Autowired
