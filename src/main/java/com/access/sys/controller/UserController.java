@@ -6,6 +6,7 @@ import com.access.sys.service.IUserService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +29,9 @@ public class UserController {
 
     @Autowired
     private IUserService userService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping("/all")
     public ResponseEntity<List<User>> getAllUser(){
@@ -84,6 +88,8 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<?> addUser(@RequestBody User user){
+        // 把用户密码加密(加严)  同密码每次的值不一样
+       user.setPassword(passwordEncoder.encode(user.getPassword()));
        userService.save(user);
        return ResponseEntity.success("新增用户成功");
     }
