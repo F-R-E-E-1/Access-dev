@@ -93,4 +93,17 @@ public class UserController {
        userService.save(user);
        return ResponseEntity.success("新增用户成功");
     }
+
+    @PutMapping
+    public ResponseEntity<?> updateUser(@RequestBody User user){
+        user.setPassword(null);
+        userService.updateById(user);
+        return ResponseEntity.success("修改用户成功");
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable("id") Integer id){
+        User user = userService.getById(id);
+        return ResponseEntity.success(user);
+    }
 }
