@@ -106,4 +106,11 @@ public class UserController {
         User user = userService.getById(id);
         return ResponseEntity.success(user);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<User> deleteUserById(@PathVariable("id") Integer id){
+        // 逻辑删除用户看不懂，但是还保留在数据库
+        userService.removeById(id);
+        return ResponseEntity.success("删除用户成功");
+    }
 }
